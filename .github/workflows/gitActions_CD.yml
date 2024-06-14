@@ -64,7 +64,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           source: "./docker-compose.yml"
-          target: "/home/ubuntu/docker-compose.yml"
+          target: "~"
 
       # SSH action to deploy using Docker Compose
       - name: SSH into the server and deploy
@@ -75,7 +75,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu
+            cd ~
             docker-compose down
             docker-compose up -d
         env:
