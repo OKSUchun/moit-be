@@ -76,18 +76,6 @@ jobs:
           port: 22
           script: |
             cd ~
-            echo "PROD_DB_URL=${{ secrets.PROD_DB_URL }}" >> .env
-            echo "PROD_DB_USERNAME=${{ secrets.PROD_DB_USERNAME }}" >> .env
-            echo "PROD_DB_PASSWORD=${{ secrets.PROD_DB_PASSWORD }}" >> .env
-            echo "PROD_REDIS_URL=${{ secrets.PROD_REDIS_URL }}" >> .env
-            echo "JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }}" >> .env
-            echo "NAVER_CLIENT_ID=${{ secrets.NAVER_CLIENT_ID }}" >> .env
-            echo "NAVER_CLIENT_SECRET=${{ secrets.NAVER_CLIENT_SECRET }}" >> .env
-            echo "NAVER_SECURITY_REDIRECT_URI=${{ secrets.NAVER_SECURITY_REDIRECT_URI }}" >> .env
-            echo "NAVER_REDIRECT_URI=${{ secrets.NAVER_REDIRECT_URI }}" >> .env
-            echo "KAKAO_CLIENT_ID=${{ secrets.KAKAO_CLIENT_ID }}" >> .env
-            echo "KAKAO_CLIENT_SECRET=${{ secrets.KAKAO_CLIENT_SECRET }}" >> .env
-            echo "KAKAO_REDIRECT_URI=${{ secrets.KAKAO_REDIRECT_URI }}" >> .env
-            echo "KAKAO_ADMIN_KEY=${{ secrets.KAKAO_ADMIN_KEY }}" >> .env
-            docker-compose down1
+            echo "${{ secrets.ENV }}" > .env
+            docker-compose down
             docker-compose up -d
