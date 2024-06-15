@@ -1,4 +1,4 @@
-name: docker-ec2
+name: Deploy to EC2 with docker-compose
 
 on:
   push:
